@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ehcache>
+
+<!--
+    Info:
+    ehcache.xml is automatically loaded by the CacheManager Spring Boot uses.
+ -->
+<ehcache>
+
+    <!-- disk space reserved in temporary files path -->
+    <diskStore path="java.io.tmpdir"/>
+
+    <!-- disc only cache for example -->
+    <cache name="seed.files"
+           maxEntriesLocalHeap="0"
+           maxEntriesLocalDisk="2"
+           eternal="false"
+           timeToIdleSeconds="5"
+           timeToLiveSeconds="20"
+           overflowToDisk="true"
+    />
+
+</ehcache>
