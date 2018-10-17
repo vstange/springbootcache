@@ -15,10 +15,19 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class SeedFileService {
 
-    @Cacheable(cacheNames = "seed.files")
+    @Cacheable(cacheNames = "seed_files")
     public String getSeed(String id) {
-        log.info("getSeed internal called for id {}", id);
-        return String.valueOf(id.hashCode());
+        int size = 50 * 1024 * 1024 + Integer.valueOf(id);
+        log.info("getSeed internal called for id {}, size {}", id, size);
+        return createDataSize(size);
+    }
+
+    private static String createDataSize(int msgSize) {
+        StringBuilder sb = new StringBuilder(msgSize);
+        for (int i = 0; i < msgSize; i++) {
+            sb.append('a');
+        }
+        return sb.toString();
     }
 
 }

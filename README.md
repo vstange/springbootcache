@@ -2,8 +2,11 @@
 
 Request for "seeds" go to `curl 'http://localhost:8080/seed/<string>'` e.g.
 
-    curl 'http://localhost:8080/seed/hello'
     curl 'http://localhost:8080/seed/1'
+    curl 'http://localhost:8080/seed/2'
+    curl 'http://localhost:8080/seed/3'
+    
+    curl 'http://localhost:6001/actuator/health'
 
 also a short example for
 - Lombok (@Log is used)

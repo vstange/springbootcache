@@ -10,15 +10,17 @@
     <!-- disk space reserved in temporary files path -->
     <diskStore path="java.io.tmpdir"/>
 
-    <!-- disc only cache for example -->
-    <cache name="seed.files"
-           maxEntriesLocalHeap="0"
-           maxEntriesLocalDisk="5"
-           maxBytesLocalDisk="500MB"
-           eternal="false"
-           timeToIdleSeconds="7200"
-           timeToLiveSeconds="20"
-           overflowToDisk="true"
-    />
+    <!-- disc only cache for example, never set localHeap to 0 -->
+    <cache name="seed_files"
+           maxEntriesLocalHeap="2"
+           maxEntriesLocalDisk="3"
+           maxBytesLocalDisk="200M"
+           diskExpiryThreadIntervalSeconds="60"
+           >
+           <!-- eternal="false" -->
+           <!--timeToIdleSeconds="7200"-->
+           <!--timeToLiveSeconds="20"-->
+        <persistence strategy="localTempSwap"/>
+    </cache>
 
 </ehcache>

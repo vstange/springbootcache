@@ -25,6 +25,8 @@ public class SeedFileController {
     @GetMapping("seed/{id}")
     public String getSeed(@PathVariable("id") String id) {
         log.info("getSeed called for id {}", id);
-        return seedFileService.getSeed(id);
+        String seed = seedFileService.getSeed(id);
+        log.info("getSeed called for id {}, size {}", id, seed.getBytes().length);
+        return String.valueOf(seed.getBytes().length);
     }
 }
